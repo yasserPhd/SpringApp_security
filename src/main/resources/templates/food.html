@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<title>Saisie des aliments</title>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" 
+ th:href="@{/css/bootstrap.min.css}"/>
+ <link rel="stylesheet" type="text/css" href="../static/css/style.css" 
+ th:href="@{/css/style.css}"/>
+</head>
+<body>
+	
+	<div class="col-md-6 col-sm-6  col-xs-12 spacer col-md-offset-3">
+		<div>Saisie d'un aliment</div>
+		<div >
+			
+					
+					
+					
+						<label class="control-label">food name :</label> 
+						<!-- <input type="text" id = "food" name = "food"   /> -->
+						
+						<!-- th:field="*{name}" -->
+						<!-- th:object="${nameFood}" -->
+						<form action="#" th:action="@{/api/getNutFact}"  method="get"  th:object="${food}">
+						<input type="text"  th:value="${name}" name="name"  />
+						<table class="table table-bordered table-hover table-striped">
+<thead>
+    <tr>
+        <th>FoodItem</th>
+        <th>FoodCategory</th>
+        <th>KJ_per100grams</th>
+        <th>Cals_per100grams</th>            
+   </tr>
+ </thead>
+ <tbody>   
+   
+     <tr th:each="foodElem: ${food}">         
+         <!-- <td><input type="text" th:checked="${name.selected}" /></td> -->
+   
+         <td th:text="${foodElem.getFoodItem()}" ></td>
+         <td th:text="${foodElem.getFoodCategory()}"></td>
+         <td th:text="${foodElem.getKJ_per100grams()}" ></td>
+         <td th:text="${foodElem.getCals_per100grams()}" ></td>
+      </tr>
+  </tbody>
+  </table>
+  <!-- <button type="submit" value="submit" class="btn btn-success">Submit</button>
+  </form> -->
+		 <button id="btn1" type="submit">get nut value</button>
+			 <br >	</br>
+					
+				</form> 
+		</div>
+	</div>
+	
+</body>
+</html>

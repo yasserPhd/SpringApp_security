@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>list etudiant</title>
+<meta charset="utf-8"/>
+<style>
+
+div.scrollmenu {
+    background-color: #333;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+div.scrollmenu a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+}
+
+div.scrollmenu a:hover {
+    background-color: #777;
+}
+body {
+   background-image: url("../static/images/bg.jpg");
+   background-color: #cccccc;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" 
+ th:href="@{/css/bootstrap.min.css}"/>
+ 
+</head>
+<body >
+ 
+ <div class="scrollmenu">
+  <a th:href="@{index}">Acceuil</a>
+   <a th:href="@{example}">consulter les clients </a>
+  
+  <a th:href="@{contact}">Contact</a>
+  <a href="#about">aide</a>
+</div> 
+
+<br></br>
+<!-- <div>
+ <button type="submit">consulter les clients</button>
+ </div>
+ <br></br> -->
+<!-- <div class="container spacer">
+ 	<form th:action="@{searchName}" method="get">
+ 	 <div>
+ 	 	<label>Mot clé :</label>
+ 	 	<input type="text" name="motSrch"/>
+ 	 	<button type="submit">Chercher</button>
+ 	 </div>
+ 	</form>
+ 	
+ 	<br></br>
+ 	
+ 	 <form th:action="@{addEtud}" method="get"> 
+ 	<form th:action="@{index}" method="get">
+ 	 	<label> ajouter client :</label>
+ 	 	 
+ 	 	<form>
+ 	 	<div > id  </div>
+ 		<div> <input type="number" name="id"/>   </div> 
+ 		 <div > Nom  </div>
+ 		<div> <input type="text" name="nom"/>   </div> 
+ 		 <div > Date de naissance </div>
+ 		<div>  <input type="text" name="date"/>   </div>
+ 		  <div >   Email </div>
+ 		  <div >   <input type="text" name="email"/> </div> 
+ 		 <div > Photo </div> 
+ 		<div > <input type="text" name="photo"/>  </div> 
+ 	 
+ 	 <br >	</br>
+	 <button type="submit">add client</button> <br >	</br>
+	  
+ 	  
+ 	 </form>
+ 	</form>
+</div> -->
+<div class="container spacer">
+  <table class="table table-striped">
+  	<thead>
+ 		<tr>
+ 		<th>id</th> <th>Nom</th> <th>Date de naissance</th> <th>Email</th>  <th>Photo</th>
+ 		</tr> 	
+  	</thead>
+  	<tbody>
+  		<tr th:each="athlete:${pageEtudiants.content}">
+  		<!-- <a th:href="@{/GetImg(photo=${athlete.photo})}"></a> -->
+  		<td th:text="${athlete.id}"></td> 
+  			<td th:text="${athlete.nom}"></td> 
+  			<td th:text="${athlete.date_naissance}"></td> 
+  			<td th:text="${athlete.email}"></td>
+  			<!-- <td th:text="${athlete.Montant}"></td>  -->
+  			 <!-- <td th:text="${athlete.date_debut}"></td> -->  
+  			 <!-- <td th:text="${#dates.format(athlete.date_debut, 'yyyy-MM-dd')}"></td>
+  			 <td th:text="${#dates.format(athlete.date_fin, 'yyyy-MM-dd')}"></td>    -->
+  			<!-- <td th:text="${athlete.photo}"></td> -->
+  			 <!-- <td img th:src="@{'data:image/png;base64,'+ athlete.photo}" alt="Didn't choosed the image"> </td>  -->
+  			<!-- <td> <img src="${url}" /> </td> -->
+  		 	<!-- <td><img  th:src="@{GetImg(photo=${athlete.photo})}"/></td>  -->
+  		  
+				 <td>	<img  th:src="@{'/images/'+${athlete.photo}}" width="50" height="50" /> </td> 
+  			<td><a onclick="return confirm('Etes vous sur ?')" th:href="@{supp(id=${athlete.id})}">Supprimer</a></td>
+  			 <td><a th:href="@{editer(id=${athlete.id})}">Editer</a></td> 
+  			
+  		</tr>
+    
+  	</tbody>
+  </table>
+  </div>
+  
+
+</body>
+</html>

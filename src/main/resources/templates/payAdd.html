@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  
+<title>list etudiant</title>
+
+
+<meta charset="utf-8"/>
+<style>
+
+
+
+.vertical-menu {
+    width: 200px; /* Set a width if you like */
+}
+
+.vertical-menu a {
+    background-color: #eee; /* Grey background color */
+    color: black; /* Black text color */
+    display: block; /* Make the links appear below each other */
+    padding: 12px; /* Add some padding */
+    text-decoration: none; /* Remove underline from links */
+}
+
+.vertical-menu a:hover {
+    background-color: #ccc; /* Dark grey background on mouse-over */
+}
+
+.vertical-menu a.active {
+    background-color: #0000FF; /* Add a green color to the "active/current" link */
+    color: white;
+}
+
+div.scrollmenu {
+    background-color: #333;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+div.scrollmenu a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+}
+
+div.scrollmenu a:hover {
+    background-color: #777;
+}
+body {
+   background-image: url("../static/images/salle.jpg");
+   background-color: #cccccc;
+}
+
+</style>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" 
+ th:href="@{/css/bootstrap.min.css}"/>
+ 
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+
+
+/* $(document).ready(function(){
+  $("button").click(function(){
+    $("p").html("Hello <b>world!</b>"); */
+    $("document").ready(function(){
+
+        $("#photoFile").change(function() {
+        	/* var tmppath = URL.createObjectURL(event.target.files[0]);
+    		$("photo").set(tmppath); */
+    		//var tmppath = URL.createObjectURL(event.target.files[0]);
+    		var tmppath = $("#photoFile").val() ;
+            alert($("#photoFile").val());
+            $("#photo").val(tmppath);
+           // $("#photo").attr('src',tmppath);
+            //$("photo").text(tmppath);
+            //$("#photo").text("yasser");
+        });
+        $("#btn1").click(function(){
+        	var tmppath = URL.createObjectURL(event.target.files[0]);
+        	$("#photo").text(tmppath);
+          });
+    });
+		/* var tmppath = URL.createObjectURL(event.target.files[0]);
+		$("photo").set(tmppath); */
+		
+
+</script>
+	
+			<!-- /* $('#photo').change( function(event) {
+					var tmppath = URL.createObjectURL(event.target.files[0]);
+					$("photo").set(tmppath) */; -->
+				
+
+</head>
+<body>
+ 
+ <div class="scrollmenu">
+  <a th:href="@{index}">Acceuil</a>
+  <a th:href="@{example}">consulter les clients </a> <!-- th:href="@{index()}" -->
+  <a th:href="@{contact}">Contact</a>
+  <a href="#about">aide</a>
+</div> 
+
+<br></br>
+
+
+ <div class="container spacer">
+ 
+ 	
+ 	<br></br>
+ 	<center>
+ 
+
+ <form th:action="@{addPay}" method="post"> 
+ 	 	<label> ajouter paiement :</label>
+ 	 	 
+ 	 	<form>
+ 	 	<div > id  </div>
+ 		<div> <input type="number" name="id"/>   </div> 
+ 		 <div > Nom  </div>
+ 		<div class="form-group blu-margin">
+    <select th:if="${listAthletes != null}" name ="nom">
+    <option value=""> selectionner un nom </option>
+    <option th:each="s : ${listAthletes}" th:value="${s}" th:text="${s}"></option>
+    </select>
+</div>
+ 		  <div >   Montant </div>
+ 		  <div >   <input type="text" name="Montant"/> </div> 
+ 		  
+   <label>Start Date: </label>
+   <div > <input type="date" id="dateTime" name="date_debut"  /> </div>
+        
+    <label>End Date: </label>
+   <div > <input type="date" id="dateTime" name="date_f" /> </div>     
+
+       <br>  </br>
+ 		 
+	 <button id="btn1" type="submit">ajouter paiment </button> 	
+	 
+ 	  
+ 	 </form>
+ 	</form> 
+ 	</center>
+</div>
+
+  
+
+</body>
+</html>
