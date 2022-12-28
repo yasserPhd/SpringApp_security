@@ -19,9 +19,9 @@ import brain.security.Model.UserSecurity;
 public class SpringSecurityApplication {
 	
 	public static void main(String[] args) {
-		SpringApplication.run(SpringSecurityApplication.class, args);
-	/*	ApplicationContext ctxt = SpringApplication.run(SpringSecurityApplication.class, args);*/
-		/*ApplicationContext ctxt = SpringApplication.run(SpringSecurityApplication.class, args);
+		//SpringApplication.run(SpringSecurityApplication.class, args);
+		//ApplicationContext ctxt = SpringApplication.run(SpringSecurityApplication.class, args);
+		ApplicationContext ctxt = SpringApplication.run(SpringSecurityApplication.class, args);
 		UserRepository ur = ctxt.getBean(UserRepository.class);
 		DateFormat d1 = new SimpleDateFormat("yyyy/MM/dd"); 
 		UserSecurity u = new UserSecurity();
@@ -40,7 +40,7 @@ public class SpringSecurityApplication {
 		ad.setActive(true);
 		ad.setUserName("USER");
 		ur.save(u);
-		ur.save(ad);*/
+		ur.save(ad);
 	}
 	
 	@Bean
