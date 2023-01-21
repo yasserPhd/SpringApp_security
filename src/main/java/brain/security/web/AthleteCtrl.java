@@ -27,7 +27,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 //@Controller
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api")
 public class AthleteCtrl {
 	@Autowired

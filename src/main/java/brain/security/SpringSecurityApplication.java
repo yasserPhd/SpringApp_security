@@ -13,6 +13,9 @@ import org.springframework.web.client.RestTemplate;
 
 import brain.security.Dao.UserRepository;
 import brain.security.Model.UserSecurity;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @SpringBootApplication
 @EnableJpaRepositories(basePackageClasses = brain.security.Dao.UserRepository.class)
@@ -47,7 +50,5 @@ public class SpringSecurityApplication {
 	   public RestTemplate getRestTemplate() {
 	      return new RestTemplate();
 	   }
-	
-	
 
 }

@@ -59,7 +59,7 @@ import net.bytebuddy.dynamic.DynamicType.Builder.FieldDefinition.Optional;
 
 //import org.opendevup.entities.Etudiant;
 
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin(origins = "http://localhost:4200")
 @Controller
 @RequestMapping(value="/athlete")
 public class AthleteController {
